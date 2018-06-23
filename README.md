@@ -10,4 +10,4 @@ This one was the first game of the my voxel games: https://ererbe.itch.io/voxel-
 (Its dead, but there will be a secound game (I made too much wrong))
 
 Dont mix it up with this game: https://voxel-clicker.com/
-this is a other universe!
+this is a other universe! (but a nice one :)
