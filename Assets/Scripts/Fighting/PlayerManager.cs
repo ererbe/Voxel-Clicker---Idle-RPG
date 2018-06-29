@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour {
 
+    private GameManager gameManager;
+
     private Image playerHpBar;
 
     private float playerMaxHP;
@@ -19,6 +21,7 @@ public class PlayerManager : MonoBehaviour {
 
     private void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         BattleStart();
     }
 
@@ -118,7 +121,7 @@ public class PlayerManager : MonoBehaviour {
         if (playerHP <= 0)
         {
             Destroy(gameObject);
-            GameManager.EndDungeon();
+            gameManager.EndDungeon();
         }
     }
 

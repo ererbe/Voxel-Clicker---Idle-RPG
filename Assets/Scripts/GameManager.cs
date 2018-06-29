@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
         dungeonManager.StartBattle();
     }
 
-    public static void EndDungeon()
+    public void EndDungeon()
     {
         for (int i = 0; i < dungeons.Length; i++)
         {
