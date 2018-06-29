@@ -5,7 +5,6 @@ public class Enemy : ScriptableObject
 {
 
     public string enemyName = "New Enemy";
-    public GameObject enemyBody = null;
 
     public bool isBoss = false;
 
@@ -16,19 +15,35 @@ public class Enemy : ScriptableObject
     public float CritChance = 0f;
     public float ChitMulti = 0f;
     public float DodgeChance = 0f;
+    public float physicalDmg = 0f;
+    public float AttackSpeed = 0f;
 
-    public int Fire;
-    public int Water;
-    public int Frost;
-    public int Nature;
-    public int Air;
-    public int Metal;
-    public int Electric;
-    public int Light;
-    public int Dark;
-    public int Blood;
+    public int FireDmg = 0;
+    public int WaterDmg = 0;
+    public int FrostDmg = 0;
+    public int NatureDmg = 0;
+    public int AirDmg = 0;
+    public int EarthDmg = 0;
+    public int MetalDmg = 0;
+    public int ElectricDmg = 0;
+    public int LightDmg = 0;
+    public int DarkDmg = 0;
+    public int BloodDmg = 0;
 
-    public float LD_P_of_Max_HP;
-    public float LD_Value;
-    public float LD_P_of_DealtDmg;
+    public int FireResistance = 0;
+    public int WaterResistance = 0;
+    public int FrostResistance = 0;
+    public int NatureResistance = 0;
+    public int AirResistance = 0;
+    public int EarthResistance = 0;
+    public int MetalResistance = 0;
+    public int ElectricResistance = 0;
+    public int LightResistance = 0;
+    public int DarkResistance = 0;
+    public int BloodResistance = 0;
+
+    public float LD_P_of_Max_HP = 0;
+    public float LD_Value = 0;
+    public float LD_P_of_DealtDmg = 0;
+    public float Reg_Per_Sec = 0;
 }

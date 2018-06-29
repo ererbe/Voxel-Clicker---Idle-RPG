@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
 	//Max -> Maximum / Maximal
 	//Min -> Minimum / Minimal
 	//Dmg -> Damage
+    //Reg -> Regeneration
+    //Sec -> Second
 	
 	//--level and Exp--
 	public static int Level;
@@ -36,9 +38,24 @@ public class Player : MonoBehaviour {
 	public static float MP_Rec;
 	public static float EP;
 	public static float EP_Rec;
-	
-	//basic stats
-	public static int Strenght;
+    public static float AttackSpeed;
+
+    //attack stats
+    public static float PhysicalDmg;
+    public static float FireDmg;
+    public static float WaterDmg;
+    public static float FrostDmg;
+    public static float NatureDmg;
+    public static float AirDmg;
+    public static float EarthDmg;
+    public static float MetalDmg;
+    public static float ElectricDmg;
+    public static float LightDmg;
+    public static float DarkDmg;
+    public static float BloodDmg;
+
+    //basic stats
+    public static int Strenght;
 	public static int Intelligence;
 	public static int Dexterity;
 	public static int Luck;
@@ -54,6 +71,7 @@ public class Player : MonoBehaviour {
 	public static float LD_P_of_Max_HP;
 	public static float LD_Value;
 	public static float LD_P_of_DealtDmg;
+    public static float Reg_Per_Sec;
 	
 	//Elemental stats
 	public static int Fire;
@@ -61,7 +79,8 @@ public class Player : MonoBehaviour {
 	public static int Frost; //Not Ice, Ice is Water + This one. Other: Frost,cold,frozen,freeze
 	public static int Nature;
 	public static int Air;  //wind
-	public static int Metal;
+    public static int Earth;
+    public static int Metal;
 	public static int Electric; //lightning
 	public static int Light;
 	public static int Dark;
@@ -76,9 +95,12 @@ public class Player : MonoBehaviour {
 	public static float HP_Rec_Multi;
 	public static float MP_Rec_Multi;
 	public static float EP_Rec_Multi;
-	
-	//Base stats, upgradeable through level ups.
-	public static int BaseStrenght;
+    public static float AttackSpeed_Multi;
+    public static float EquipPhysicalDmg_Multi;
+
+    //Base stats, upgradeable through level ups.
+
+    public static int BaseStrenght;
 	public static int BaseIntelligence;
 	public static int BaseDexterity;
 	public static int BaseLuck;
@@ -93,7 +115,8 @@ public class Player : MonoBehaviour {
 	public static int BaseCold;
 	public static int BaseNature;
 	public static int BaseAir;
-	public static int BaseMetal;
+    public static int BaseEarth;
+    public static int BaseMetal;
 	public static int BaseElectric;
 	public static int BaseLight;
 	public static int BaseDark;
@@ -115,13 +138,15 @@ public class Player : MonoBehaviour {
 	public static float RaceLD_P_of_Max_HP;
 	public static float RaceLD_Value;
 	public static float RaceLD_P_of_DealtDmg;
+    public static float RaceReg_Per_Sec;
 
-	public static int RaceFire;
+    public static int RaceFire;
 	public static int RaceWater;
 	public static int RaceCold;
 	public static int RaceNature;
 	public static int RaceAir;
-	public static int RaceMetal;
+    public static int RaceEarth;
+    public static int RaceMetal;
 	public static int RaceElectric; 
 	public static int RaceLight;
 	public static int RaceDark;
@@ -133,9 +158,11 @@ public class Player : MonoBehaviour {
 	public static float RaceHP_Rec_Multi;
 	public static float RaceMP_Rec_Multi;
 	public static float RaceEP_Rec_Multi;
-	
-	//Class
-	public static int ClassStrenght;
+
+    public static float RaceEquipPhysicalDmg_Multi;
+
+    //Class
+    public static int ClassStrenght;
 	public static int ClassIntelligence;
 	public static int ClassDexterity;
 	public static int ClassLuck;
@@ -150,13 +177,15 @@ public class Player : MonoBehaviour {
 	public static float ClassLD_P_of_Max_HP;
 	public static float ClassLD_Value;
 	public static float ClassLD_P_of_DealtDmg;
+    public static float ClassReg_Per_Sec;
 
-	public static int ClassFire;
+    public static int ClassFire;
 	public static int ClassWater;
 	public static int ClassCold;
 	public static int ClassNature;
 	public static int ClassAir;
-	public static int ClassMetal;
+    public static int ClassEarth;
+    public static int ClassMetal;
 	public static int ClassElectric; 
 	public static int ClassLight;
 	public static int ClassDark;
@@ -168,9 +197,64 @@ public class Player : MonoBehaviour {
 	public static float ClassHP_Rec_Multi;
 	public static float ClassMP_Rec_Multi;
 	public static float ClassEP_Rec_Multi;
-	
-	//Weapon/Attacktype Level And Exp
-	public static int BladeWeaponLevel;
+
+    public static float ClassEquipPhysicalDmg_Multi;
+
+    //Eqipment
+    public static float EquipPhysicalDmg; // *Math: PhysicalDmg = BasePhysicalDmg * (WeaponMasterLevel/10) * PhysicalDmgMulti
+
+    public static float EquipFireDmg; //*Math; "Element"Dmg = Base"Element"Dmg * (WeaponMasterLevel/10) * "Elemental"DmgMulti
+    public static float EquipWaterDmg;
+    public static float EquipColdDmg;
+    public static float EquipNatureDmg;
+    public static float EquipAirDmg;
+    public static float EquipEarthDmg;
+    public static float EquipMetalDmg;
+    public static float EquipElectricDmg;
+    public static float EquipLightDmg;
+    public static float EquipDarkDmg;
+    public static float EquipBloodDmg;
+
+    public static float EquipAttackSpeed;
+
+    public static int EquipStrenght;
+    public static int EquipIntelligence;
+    public static int EquipDexterity;
+    public static int EquipLuck;
+    public static int EquipWisdom;
+    public static int EquipWillpower;
+    public static int EquipAgility;
+    public static int EquipFocus;
+    public static int EquipToughness;
+
+    public static int EquipFire;
+    public static int EquipWater;
+    public static int EquipCold;
+    public static int EquipNature;
+    public static int EquipAir;
+    public static int EquipEarth;
+    public static int EquipMetal;
+    public static int EquipElectric;
+    public static int EquipLight;
+    public static int EquipDark;
+    public static int EquipBlood;
+
+    public static float EquipCritMulti;
+    public static float EquipDeadlyMulti;
+    public static float EquipLD_P_of_Max_HP;
+    public static float EquipLD_Value;
+    public static float EquipLD_P_of_DealtDmg;
+    public static float EquipReg_Per_Sec;
+
+    public static float EquipHP_Multi;
+    public static float EquipMP_Multi;
+    public static float EquipEP_Multi;
+    public static float EquipHP_Rec_Multi;
+    public static float EquipMP_Rec_Multi;
+    public static float EquipEP_Rec_Multi;
+
+    //Weapon/Attacktype Level And Exp
+    public static int BladeWeaponLevel;
 	public static int BladeWeaponExp;
 	public static int AxeWeaponLevel;
 	public static int AxeWeaponExp;
